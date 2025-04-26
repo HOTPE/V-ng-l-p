@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+int a[1000];
+int b[1000];
+int c[1000];
+int d[1000];
+int e[1000];
+int kq[1000];
+int main()
+{
+	int n, m;
+	int count = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	cin >> m;
+	for (int i = 0; i < m; i++)
+	{
+		cin >> b[i];
+	}
+	for (int i = n - 1; i >= 0; i--)
+	{
+		c[count++] = a[i];
+	}
+	int dem = 0;
+	for (int i = m - 1; i >= 0; i--)
+	{
+		d[dem++] = b[i];
+	}
+	int numA = 0, numB = 0;
+	for (int i = 0; i < n; i++) {
+		numA = numA * 10 + c[i];
+	}
+	for (int i = 0; i < m; i++) {
+		numB = numB * 10 + d[i];
+	}
+	long long sum = numA + numB;
+	long long tong = 0;
+	while (sum != 0)
+	{
+		tong = tong * 10 + sum % 10;
+		sum  /= 10;
+	}
+	cout << tong << endl;
+	return 0;
+}
